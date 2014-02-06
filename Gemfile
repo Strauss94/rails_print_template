@@ -6,6 +6,9 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'tinymce-rails', git: 'https://github.com/spohlenz/tinymce-rails.git', branch: 'tinymce-4'
 
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 group :doc do
   gem 'sdoc', require: false
 end

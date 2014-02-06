@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TemplateEditor</title>
+  <%= wicked_pdf_stylesheet_link_tag "templates.css" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<body class="format-outline" style="<%= style_for(@template) %>">
+  <%= raw @template.body %>
+</body>
+</html>

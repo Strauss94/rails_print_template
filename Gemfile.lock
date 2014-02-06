@@ -95,6 +95,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
+    wicked_pdf (0.9.10)
+      rails
+    wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
   ruby
@@ -106,3 +109,5 @@ DEPENDENCIES
   sqlite3
   therubyracer
   tinymce-rails!
+  wicked_pdf
+  wkhtmltopdf-binary

@@ -1,5 +1,7 @@
 TemplateEditor::Application.routes.draw do
-  resources :templates
+  resources :test_adresses
+
+  resources :print_templates
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

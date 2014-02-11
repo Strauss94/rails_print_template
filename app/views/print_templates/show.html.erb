@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @template.name %></h1>
+<%= link_to 'Edit', edit_print_template_path(@template) %> |
+<%= link_to 'Back', print_templates_path %> |
+<%= link_to 'PDF', print_template_path(@template, format: :pdf) %>
+
+
+<div class="format-outline" style="<%= style_for(@template) %>">
+  <%= raw @template.body %>
+</div>

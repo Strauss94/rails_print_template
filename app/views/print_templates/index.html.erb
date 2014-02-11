@@ -1,0 +1,25 @@
+<h1>Listing templates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>verwendete Felder</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= template.name %></td>
+        <td><%= template.variable_fields.join(', ') %></td>
+        <td><%= link_to 'Show', template %> | <%= link_to 'Edit', edit_print_template_path(template) %> | <%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Template', new_print_template_path %>

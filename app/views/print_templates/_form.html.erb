@@ -1,0 +1,61 @@
+<%= form_for(@template) do |f| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="group left">
+    <% %w{width height margin_top margin_left margin_right margin_bottom}.each do |att| %>
+    <div class="field">
+      <%= f.label att %><br>
+      <%= f.number_field att %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="group right">
+    <%= PrintTemplate.fields.inspect %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: 'tinymce'  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+tinymce.init({
+    plugins: "link,anchor",
+    selector: "textarea",
+    toolbar: "template_data_button, links, anchor",
+    link_list: [
+      <%= raw PrintTemplate.fields.map{|grp,eles| eles.map{|e| raw "{title: '#{grp} - #{e}', value: '##{e}#'}"}}.flatten.join(",\n") %>
+    ],
+    setup: function(editor) {
+        editor.addButton('template_data_button', {
+            type: 'menubutton',
+            text: 'Variable',
+            icon: false,
+            menu: [
+                <%= raw PrintTemplate.fields.map{|grp,eles| eles.map{|e| raw "{text: '#{grp} - #{e}', onclick: function() {editor.insertContent('<a href= \"##{e}\" id=\"#{e}\">##{t(e)}#</a>');}}" }}.flatten.join(",\n") %>
+            ]
+        });
+    }
+});
+</script>

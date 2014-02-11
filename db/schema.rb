@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206094308) do
+ActiveRecord::Schema.define(version: 20140206123334) do
 
-  create_table "templates", force: true do |t|
+  create_table "print_templates", force: true do |t|
     t.string   "name"
     t.text     "body"
     t.integer  "height"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20140206094308) do
     t.integer  "margin_right"
     t.integer  "margin_top"
     t.integer  "margin_bottom"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "test_adresses", force: true do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "street"
+    t.string   "title"
+    t.string   "zip"
+    t.string   "city"
+    t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

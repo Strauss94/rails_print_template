@@ -1,6 +1,6 @@
-class CreateTemplates < ActiveRecord::Migration
+class CreatePrintTemplates < ActiveRecord::Migration
   def change
-    create_table :templates do |t|
+    create_table :print_templates do |t|
       t.string :name
       t.text :body
 

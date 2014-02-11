@@ -1,9 +1,9 @@
-class TemplatesController < ApplicationController
+class PrintTemplatesController < ApplicationController
   before_action :set_template, only: [:show, :edit, :update, :destroy]
 
   # GET /templates
   def index
-    @templates = Template.all
+    @templates = PrintTemplate.all
   end
 
   # GET /templates/1
@@ -11,14 +11,14 @@ class TemplatesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "MyPDF", layout: false
+        render_print_template_as_pdf(@template, 'Test')
       end
     end
   end
 
   # GET /templates/new
   def new
-    @template = Template.new
+    @template = PrintTemplate.new
   end
 
   # GET /templates/1/edit
@@ -27,10 +27,10 @@ class TemplatesController < ApplicationController
 
   # POST /templates
   def create
-    @template = Template.new(template_params)
+    @template = PrintTemplate.new(template_params)
 
     if @template.save
-      redirect_to @template, notice: 'Template was successfully created.'
+      redirect_to @template, notice: 'PrintTemplate was successfully created.'
     else
       render action: 'new'
     end
@@ -39,7 +39,7 @@ class TemplatesController < ApplicationController
   # PATCH/PUT /templates/1
   def update
     if @template.update(template_params)
-      redirect_to @template, notice: 'Template was successfully updated.'
+      redirect_to @template, notice: 'PrintTemplate was successfully updated.'
     else
       render action: 'edit'
     end
@@ -48,17 +48,17 @@ class TemplatesController < ApplicationController
   # DELETE /templates/1
   def destroy
     @template.destroy
-    redirect_to templates_url, notice: 'Template was successfully destroyed.'
+    redirect_to templates_url, notice: 'PrintTemplate was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_template
-      @template = Template.find(params[:id])
+      @template = PrintTemplate.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def template_params
-      params.require(:template).permit(:name, :body, :width, :height, :margin_left, :margin_right, :margin_top, :margin_bottom)
+      params.require(:print_template).permit(:name, :body, :width, :height, :margin_left, :margin_right, :margin_top, :margin_bottom)
     end
 end

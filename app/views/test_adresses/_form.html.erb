@@ -1,0 +1,45 @@
+<%= form_for(@test_adress) do |f| %>
+  <% if @test_adress.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_adress.errors.count, "error") %> prohibited this test_adress from being saved:</h2>
+
+      <ul>
+      <% @test_adress.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br>
+    <%= f.date_select :birthday %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

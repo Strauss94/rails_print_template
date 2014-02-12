@@ -1,0 +1,2 @@
+module TestAdressesHelper
+end

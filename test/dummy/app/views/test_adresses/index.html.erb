@@ -1,0 +1,42 @@
+<h1>Listing test_adresses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>First name</th>
+      <th>Street</th>
+      <th>Title</th>
+      <th>Zip</th>
+      <th>City</th>
+      <th>Birthday</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_adresses.each do |test_adress| %>
+      <tr>
+        <td><%= test_adress.name %></td>
+        <td><%= test_adress.first_name %></td>
+        <td><%= test_adress.street %></td>
+        <td><%= test_adress.title %></td>
+        <td><%= test_adress.zip %></td>
+        <td><%= test_adress.city %></td>
+        <td><%= test_adress.birthday %></td>
+        <td><%= link_to 'Show', test_adress %></td>
+        <td><%= link_to 'Edit', edit_test_adress_path(test_adress) %></td>
+        <td><%= link_to 'Destroy', test_adress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'PDF', test_adress_path(test_adress, format: :pdf) %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test adress', new_test_adress_path %>

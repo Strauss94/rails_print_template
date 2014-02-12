@@ -1,5 +1,6 @@
 class TestAdressesController < ApplicationController
   before_action :set_test_adress, only: [:show, :edit, :update, :destroy]
+  include TemplateRenderHelper
 
   # GET /test_adresses
   def index

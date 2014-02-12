@@ -1,28 +1,9 @@
-== README
+= RailsPrintTemplate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Getting Started
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Add <tt>gem 'rails_print_template' </tt> to your Gemfile.
+2. Run <tt>bundle install</tt>
+3. Run <tt>rake rails_print_template:install:migrations</tt> inside your Rails application
+4. Run <tt>rake db:migrate</tt>
+5. Mount the Engine in your <tt>config/routes.rb</tt> like this <tt></tt>

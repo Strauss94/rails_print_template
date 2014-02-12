@@ -1,5 +1,6 @@
 class PrintTemplatesController < ApplicationController
   before_action :set_template, only: [:show, :edit, :update, :destroy]
+  include TemplateRenderHelper
 
   # GET /templates
   def index

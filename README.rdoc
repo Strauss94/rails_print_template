@@ -6,4 +6,24 @@
 2. Run <tt>bundle install</tt>
 3. Run <tt>rake rails_print_template:install:migrations</tt> inside your Rails application
 4. Run <tt>rake db:migrate</tt>
-5. Mount the Engine in your <tt>config/routes.rb</tt> like this <tt></tt>
+5. Mount the Engine in your <tt>config/routes.rb</tt> like this <tt>mount RailsPrintTemplate::Engine, as: 'template/'</tt>
+6. Enable the template to access your models attributes like
+  class MyModel < ActiveRecord::Base
+    extend PrintTemplate::DataHook
+    template_field :field_a
+    template_field :field_b
+  end
+
+== Workaround
+
+At the moment I have some problems with the require and path-stuff. So you have
+to require all my dependencies yourself ...
+
+<tt>gem "wkhtmltopdf-binary"</tt>
+<tt>gem "wicked_pdf"</tt>
+
+... and add the PDF-Rendertemplate ...
+<tt>app/views/print_templates/rails_print_template.pdf.erb -> </tt>
+... to your <tt>lib/</tt> Dir
+
+Also check the <tt>test/dummy/</tt> App as working sample-application.
